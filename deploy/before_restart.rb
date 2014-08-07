@@ -12,7 +12,7 @@ def set_env(secrets)
   Chef::Log.info("Creating Environment Variables")
 	secrets.each do |k,v|
 		ENV[k] = v
-		Chef::Log.info("...:#{k} = #{v}")
+		Chef::Log.info("...:#{k}")
 	end
 end
 
