@@ -9,8 +9,10 @@ def create_secrets(secrets, release_path)
   end
 end
 def set_env(secrets)
+  Chef::Log.info("Creating Environment Variables")
 	secrets.each do |k,v|
 		ENV[k] = v
+		Chef::Log.info("...:#{k} = #{v}")
 	end
 end
 
