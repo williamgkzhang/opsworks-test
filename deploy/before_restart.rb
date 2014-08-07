@@ -8,7 +8,13 @@ def create_secrets(secrets, release_path)
     end
   end
 end
+def set_env(secrets)
+	secrets.each do |k,v|
+		ENV[k] = v
+	end
+end
 
 node[:deploy].each do |application, deploy|
   create_secrets(deploy[:secrets], release_path)
+  set_env(deploy[:secrets])
 end	
